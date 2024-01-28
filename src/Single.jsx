@@ -11,7 +11,7 @@ const Single = () => {
                   method: "GET",
                   headers: {
                         accept: "application/json",
-                        Authorization:import.meta.env.VITE_API_AUTH_TOKEN,
+                        Authorization: import.meta.env.VITE_API_AUTH_TOKEN,
                   },
             };
             const fetchMovieAPI = async () => {
@@ -49,19 +49,19 @@ const Single = () => {
                                                 {genre.name}{" "}
                                           </span>
                                     ))}
-                                    <div className="flex mt-3 mb-2 items-center justify-between flex-wrap">
-                              <p className="text-slate-400 ">
-                                    <strong className="text-slate-300">Release:</strong>{" "}
-                                    <span className="ml-1 font-mono">{movie.release_date}</span>
-                              </p>
-                              <p className="text-slate-400 ">
-                                    <strong className="text-slate-300">Rating:</strong>{" "}
-                                    <span className="ml-1 text-base font-semibold">A</span>
-                              </p>
-                              <p className="text-slate-400 ">
-                                    <strong className="text-slate-300">Runtime:</strong>{" "}
-                                    <span className="ml-1 font-mono">{movie.runtime}m</span>
-                              </p>
+                              <div className="flex mt-3 mb-2 items-center justify-between flex-wrap">
+                                    <p className="text-slate-400 ">
+                                          <strong className="text-slate-300">Release:</strong>{" "}
+                                          <span className="ml-1 font-mono">{movie.release_date}</span>
+                                    </p>
+                                    <p className="text-slate-400 ">
+                                          <strong className="text-slate-300">Rating:</strong>{" "}
+                                          <span className="ml-1 text-base font-semibold">A</span>
+                                    </p>
+                                    <p className="text-slate-400 ">
+                                          <strong className="text-slate-300">Runtime:</strong>{" "}
+                                          <span className="ml-1 font-mono">{movie.runtime}m</span>
+                                    </p>
                               </div>
                               <p className="text-slate-400 text-sm mb-2">
                                     <strong className="p-.5 text-black bg-yellow-500">IMDb</strong>{" "}
@@ -83,7 +83,7 @@ const Single = () => {
                                           </strong>{" "}
                                           {movie.production_companies &&
                                                 movie.production_companies.map(production => (
-                                                      <span className="mr-2" key={production.id}>{production.name}</span>
+                                                      <span className="mr-3" key={production.id}>{production.name}</span>
                                                 ))}
                                     </p>
                                     <p className="text-slate-400  mb-2">
