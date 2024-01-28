@@ -28,7 +28,7 @@ const Single = () => {
 
       return (
             <>
-                  <div className="w-full gap-2 sm:gap-0 grid sm:grid-cols-1/1.75">
+                  <div className="w-full gap-4 sm:gap-0 grid sm:grid-cols-1/1.75">
                         <img
                               className="w-full aspect-2/3 object-cover"
                               src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
