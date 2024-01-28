@@ -9,10 +9,21 @@ const App = () => {
       const [movies, setMovies] = useState([]);
       const [pageCount, setpageCount] = useState(1);
 
+      const prevPage = () => {
+            if (pageCount <= 1) {
+                  setpageCount(1)
+                  return
+            }
+            setpageCount(prevPageCount => prevPageCount - 1)
+      }
+      const nextvPage = () => {
+            setpageCount(prevPageCount => prevPageCount + 1)
+      }
+
       const pageRouter = createBrowserRouter([
             {
                   path: "/",
-                  element: <Card movies={movies} />
+                  element: <Card movies={movies} nextvPage={nextvPage} prevPage={prevPage} pageCount={pageCount} />
             },
             {
                   path: "/single/:id",
@@ -40,17 +51,6 @@ const App = () => {
             fetchMovieAPI();
       }, [pageCount])
 
-      const prevPage = () => {
-            if (pageCount <= 1) {
-                  setpageCount(1)
-                  return
-            }
-            setpageCount(prevPageCount => prevPageCount - 1)
-      }
-      const nextvPage = () => {
-            setpageCount(prevPageCount => prevPageCount + 1)
-      }
-
       return (<>
             <main className="w-svh h-svh overflow-y-auto bg-slate-800 grid md:grid-cols-1/3.5 grid-cols-1">
                   <aside className="sidebar bg-slate-950 h-full overflow-y-auto px-2 hidden md:block">
@@ -72,11 +72,7 @@ const App = () => {
                         <div className="main-content p-4 overflow-y-auto">
                               <RouterProvider router={pageRouter} />
                         </div>
-                        <div className="p-4 flex justify-center items-center gap-6">
-                              {pageCount !== 1 &&
-                                    <a href='#' onClick={prevPage} className='py-1 px-3 font-syne rounded-sm uppercase text-sm border border-slate-500 text-slate-100'>Prev</a>}
-                              <a href='#' onClick={nextvPage} className='py-1 px-3 font-syne rounded-sm uppercase text-sm border border-slate-500 text-slate-100'>next</a>
-                        </div>
+
                   </section>
             </main>
       </>)

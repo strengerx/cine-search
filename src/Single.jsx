@@ -24,7 +24,7 @@ const Single = () => {
                   }
             };
             fetchMovieAPI();
-      }, []);
+      }, [id]);
 
       return (
             <>
@@ -40,7 +40,7 @@ const Single = () => {
                                     {movie.original_title}
                               </h1>
                               {movie.genres &&
-                                    movie.genres.map((genre) => (
+                                    movie.genres.map(genre => (
                                           <span
                                                 className="text-slate-400 text-xs mr-1 capitalize font-semibold"
                                                 key={genre.id}
@@ -82,7 +82,7 @@ const Single = () => {
                                                 Production Company:
                                           </strong>{" "}
                                           {movie.production_companies &&
-                                                movie.production_companies.map((production) => (
+                                                movie.production_companies.map(production => (
                                                       <span className="mr-2" key={production.id}>{production.name}</span>
                                                 ))}
                                     </p>
