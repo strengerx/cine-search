@@ -32,7 +32,7 @@ const App = () => {
       ])
 
       useEffect(() => {
-            const url = `https://api.themoviedb.org/3/movie/top_rated?page=${pageCount}`;
+            const url = `https://api.themoviedb.org/3/movie/popular?page=${pageCount}`;
             const options = {
                   method: 'GET',
                   headers: {
