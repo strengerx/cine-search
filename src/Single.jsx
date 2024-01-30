@@ -18,7 +18,6 @@ const Single = () => {
                   try {
                         const response = await (await fetch(url, options)).json();
                         setMovie(response);
-                        console.log(response);
                   } catch (e) {
                         console.log("Error fetching weather " + e);
                   }
@@ -29,11 +28,12 @@ const Single = () => {
       return (
             <>
                   <div className="w-full gap-4 sm:gap-0 grid sm:grid-cols-1/1.75">
-                        <img
-                              className="w-full aspect-2/3 object-cover"
-                              src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
-                              alt={movie.original_title}
-                        />
+                        {movie.poster_path &&
+                              <img
+                                    className="w-full aspect-2/3 object-cover"
+                                    src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
+                                    alt={movie.original_title}
+                              />}
 
                         <div className="sm:py-5 sm:px-10 font-syne">
                               <h1 className="text-2xl font-bold mb-1 text-slate-100">
@@ -65,7 +65,7 @@ const Single = () => {
                               </div>
                               <p className="text-slate-400 text-sm mb-2">
                                     <strong className="p-.5 text-black bg-yellow-500">IMDb</strong>{" "}
-                                    <sapn className="ml-1 font-mono text-lg font-semibold">8.5/10</sapn>
+                                    <span className="ml-1 font-mono text-lg font-semibold">8.5/10</span>
                               </p>
                               <p className="text-slate-400 mb-4">
                                     <strong className="text-slate-300">Description:</strong>{" "}

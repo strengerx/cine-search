@@ -1,3 +1,5 @@
+import { memo } from "react"
+
 const Card = ({ movies, prevPage, nextvPage, pageCount }) => {
       return (<>
             <div className="w-full align-middle grid grid-cols-2 md:grid-cols-6 gap-4">
@@ -22,4 +24,4 @@ const Card = ({ movies, prevPage, nextvPage, pageCount }) => {
       </>)
 }
 
-export default Card
+export default memo(Card)

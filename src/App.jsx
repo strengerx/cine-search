@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Card from './Card';
 import './app.css';
@@ -17,7 +17,7 @@ const App = () => {
             setpageCount(prevPageCount => prevPageCount - 1)
       }
       const nextvPage = () => {
-            setpageCount(prevPageCount => prevPageCount + 1)
+            setpageCount(pageCount + 1)
       }
 
       const pageRouter = createBrowserRouter([
