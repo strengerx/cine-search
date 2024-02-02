@@ -57,7 +57,7 @@ const Single = ({ isLoading, setIsLoading }) => {
                                                       {genre.name}{" "}
                                                 </span>
                                           ))}
-                                    <div className="flex mt-3 mb-2 items-center justify-between flex-wrap">
+                                    <div className="flex mt-3 mb-2 items-center justify-between flex-wrap gap-2">
                                           <p className="text-slate-400 ">
                                                 <strong className="text-slate-300">Release:</strong>{" "}
                                                 <span className="ml-1 font-mono">{movie.release_date}</span>
@@ -93,9 +93,6 @@ const Single = ({ isLoading, setIsLoading }) => {
                                                       movie.production_companies.map(production => (
                                                             <span className="mr-3" key={production.id}>{production.name}</span>
                                                       ))}
-                                          </p>
-                                          <p className="text-slate-400  mb-2">
-                                                <strong className="text-slate-300">Director:</strong> John Doe
                                           </p>
                                     </div>
                               </div>
