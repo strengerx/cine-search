@@ -1,12 +1,14 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 
-const Single = ({ isLoading, setIsLoading }) => {
+const Single = () => {
+      const [isLoading, setIsLoading] = useState(false);
+
       const { id } = useParams();
       const [movie, setMovie] = useState({});
 
       useEffect(() => {
-            const url = `${import.meta.env.VITE_BASE_URL}/movie/${id}`;
+            const url = `${import.meta.env.VITE_API_BASE_URL}/movie/${id}`;
             const options = {
                   method: "GET",
                   headers: {
@@ -79,7 +81,6 @@ const Single = ({ isLoading, setIsLoading }) => {
                                           <strong className="text-slate-300">Description:</strong>{" "}
                                           {movie.overview}
                                     </p>
-                                    {/* Production House Details */}
                                     <div className="border-t border-gray-300 pt-4">
                                           <h2 className="text-xl font-bold text-slate-100 mb-2">
                                                 Production House Details

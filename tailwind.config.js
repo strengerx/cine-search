@@ -24,6 +24,9 @@ export default {
         "2/3": "2/3",
       }, padding: {
         ".5": "2px"
+      },
+      width: {
+        "min(90%,350px)": "min(90%,350px)"
       }
     },
   },
