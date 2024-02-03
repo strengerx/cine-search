@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Routes, Route, Link, Outlet } from "react-router-dom";
+import { Routes, Route, Link } from "react-router-dom";
 import Content from './Content';
 import './app.css';
 import Single from './Single';

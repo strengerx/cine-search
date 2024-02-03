@@ -17,7 +17,7 @@ const Card = () => {
       const nextvPage = () => { setpageCount(pageCount + 1) }
 
       useEffect(() => {
-            const url = `${import.meta.env.VITE_API_BASE_URL}/movie/${category || "popular"}?page=${pageCount}`;
+            const url = `${import.meta.env.VITE_API_BASE_URL}/movie/${category}?page=${pageCount}`;
             const options = {
                   method: 'GET',
                   headers: {
@@ -31,7 +31,7 @@ const Card = () => {
                         const response = await (await fetch(url, options)).json();
                         setMovies(response.results);
                   } catch (e) {
-                        console.log("Error fetching weather " + e);
+                        console.log("Error fetching data " + e);
                   } finally {
                         setIsLoading(false);
                   }
