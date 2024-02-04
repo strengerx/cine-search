@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import Loading from "../components/Loading";
 
 const Single = () => {
       const [isLoading, setIsLoading] = useState(false);
@@ -33,9 +34,7 @@ const Single = () => {
       return (
             <>
                   {isLoading ?
-                        <div className="flex w-full h-[80svh] justify-center items-center">
-                              <h6 className="font-syne text-xl font-semibold text-slate-400">Loading...</h6>
-                        </div>
+                        <Loading />
                         :
                         <div className="w-full gap-4 sm:gap-0 grid sm:grid-cols-1/1.75">
                               {movie.poster_path &&
@@ -93,7 +92,8 @@ const Single = () => {
                                                 {movie.production_companies &&
                                                       movie.production_companies.map(production => (
                                                             <span className="mr-3" key={production.id}>{production.name}</span>
-                                                      ))}
+                                                      ))
+                                                }
                                           </p>
                                     </div>
                               </div>

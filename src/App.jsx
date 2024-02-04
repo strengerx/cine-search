@@ -1,44 +1,24 @@
 import { useState } from 'react';
 import { Routes, Route, Link } from "react-router-dom";
-import Content from './Content';
+import Content from './pages/Content';
 import './app.css';
-import Single from './Single';
-import ErrorPage from './ErrorPage';
-import Hero from './Hero';
+import Single from './pages/Single';
+import ErrorPage from './pages/ErrorPage';
+import Hero from './pages/Home';
+import SideBar from './components/ui/SideBar';
 
 const App = () => {
 
       const [toggle, setToggle] = useState(false);
 
-      const asideToggleCss = { right: "0" };
-      const playableCatagory = [
-            { path: "top_rated", name: "Top Rated" },
-            { path: "popular", name: "popular" },
-            { path: "now_playing", name: "now playing" },
-            { path: "upcoming", name: "upcoming" },
-      ]
-
       return (<>
             <main className="w-svh h-svh overflow-y-auto bg-slate-800 grid md:grid-cols-1/3.5 grid-cols-1">
-                  <aside style={toggle ? asideToggleCss : {}} className="sidebar transition-all duration-500 bg-slate-950 h-full overflow-y-auto px-2 sm:static fixed right-[-350px] top-0 z-50 w-min(90%,350px) sm:w-auto ease-in-out">
-                        <div className="h-20 flex items-center justify-center flex-col">
-                              <div className="sm:hidden flex justify-start w-full px-5 h-20 items-center">
-                                    <button onClick={() => setToggle(!toggle)} className=' text-3xl text-slate-300 capitalize font-semibold'><i className="fa-solid fa-xmark"></i></button>
-                              </div>
-                              <Link className='hidden sm:block' to='/'>
-                                    <h1 className="text-slate-100 font-syne text-4xl uppercase font-bold text-center">Cine Search</h1>
-                              </Link>
-                        </div>
-                        <div className="w-full min-h-[80svh] flex flex-col items-end sm:items-start justify-start gap-4 text-slate-300 px-5 py-5">
-                              {playableCatagory && playableCatagory.map((cate, key) => (
-                                    <div key={key}><Link onClick={() => setToggle(false)} className='uppercase font-semibold text-base' to={`/movie/${cate.path}`} >{cate.name}</Link></div>
-                              ))}
-                        </div>
-                  </aside>
+                  <SideBar toggle={toggle} setToggle={setToggle} />
                   <section className="content h-auto overflow-y-auto">
                         <header className="bg-slate-900 h-20 flex justify-between items-center px-4 sticky top-0 right-0">
                               <Link className='sm:hidden' to={"/"} >
-                                    <h2 className="text-slate-100 font-syne text-2xl uppercase font-bold text-center">Cine</h2></Link>
+                                    <h2 className="text-slate-100 font-syne text-2xl uppercase font-bold text-center">Cine</h2>
+                              </Link>
                               <div className="hidden sm:block search-box min-w-[60%] h-10 border rounded-md bg-slate-800 border-slate-700">
                                     <input className="text-slate-300 font-syne text-sm font-semibold uppercase w-full h-full bg-transparent outline-none p-2" type="text" placeholder="Search Movies" />
                               </div>
