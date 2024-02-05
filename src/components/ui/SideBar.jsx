@@ -33,7 +33,7 @@ const SideBar = ({ toggle, setToggle }) => {
                         <SearchForm />
                   </div>
                   <div className="w-full min-h-[80svh] flex flex-col items-start justify-center gap-6 font-syne text-slate-300 px-5 py-5">
-                        <div className="" ><Link onClick={() => setToggle(false)} className='capitalize font-thin text-xl' to={`/`} >Home</Link></div>
+                        <div className="" ><Link onClick={handleLinksClick} className='capitalize font-thin text-xl' to={`/`} >Home</Link></div>
                         {playableCatagory && playableCatagory.map((cate, key) => (
                               <div className="" key={key}><Link onClick={handleLinksClick} className='capitalize font-thin text-xl' to={`/movie/${cate.path}`} >{cate.name}</Link></div>
                         ))}
