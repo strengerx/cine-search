@@ -1,7 +1,8 @@
 import { useParams } from "react-router-dom"
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import Loading from "../components/Loading";
 import Card from "../components/ui/Card";
+import SearchKeyContext from "../context/SearchKeyContext";
 
 
 const Content = () => {
@@ -17,9 +18,11 @@ const Content = () => {
       }
 
       const nextvPage = () => { setpageCount(prevPageCount => prevPageCount + 1) }
+      const { searchKey } = useContext(SearchKeyContext);
+
 
       useEffect(() => {
-            const url = `${import.meta.env.VITE_API_BASE_URL}/movie/${category}?page=${pageCount}`;
+            const url = searchKey ? `${import.meta.env.VITE_API_BASE_URL}/search/movie?query=${searchKey}&page=${pageCount}` : `${import.meta.env.VITE_API_BASE_URL}/movie/${category}?page=${pageCount}`;
             const options = {
                   method: 'GET',
                   headers: {
@@ -39,7 +42,7 @@ const Content = () => {
                   }
             }
             fetchMovieAPI();
-      }, [pageCount, category])
+      }, [pageCount, category, searchKey])
 
       return (<>
 
