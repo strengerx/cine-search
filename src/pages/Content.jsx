@@ -22,7 +22,7 @@ const Content = () => {
 
 
       useEffect(() => {
-            const url = searchKey ? `${import.meta.env.VITE_API_BASE_URL}/search/movie?query=${searchKey}&page=${pageCount}` : `${import.meta.env.VITE_API_BASE_URL}/movie/${category}?page=${pageCount}`;
+            const url = searchKey ? `${import.meta.env.VITE_API_BASE_URL}/search/movie?query=${searchKey}&include_adult=true&page=${pageCount}` : `${import.meta.env.VITE_API_BASE_URL}/movie/${category}?page=${pageCount}`;
             const options = {
                   method: 'GET',
                   headers: {

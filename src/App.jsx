@@ -33,10 +33,7 @@ const App = () => {
                               <div className="main-content p-4 overflow-y-auto">
                                     <Routes>
                                           <Route path='/' element={!searchKey ? <Hero /> : <Content searchKey={searchKey} />} />
-                                          <Route path='/movie'>
-                                                <Route path=':category' element={<Content searchKey={searchKey} />} />
-                                                <Route path=':category/single/:id' element={<Single />} />
-                                          </Route>
+                                          <Route path='/movie/:category' element={<Content searchKey={searchKey} />} />
                                           <Route path='/single/:id' element={<Single />} />
                                           <Route path='*' element={<ErrorPage />} />
                                     </Routes>
