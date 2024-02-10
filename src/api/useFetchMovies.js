@@ -8,7 +8,7 @@ const useFetchMovies = ({ category, searchKey, pageCount }) => {
 
       useEffect(() => {
             const urlForSearches = `${import.meta.env.VITE_API_BASE_URL}/search/multi?query=${searchKey}&page=${pageCount}`;
-            const urlForCategories = `${import.meta.env.VITE_API_BASE_URL}/movie/${category}?page = ${pageCount}`;
+            const urlForCategories = `${import.meta.env.VITE_API_BASE_URL}/movie/${category}?page=${pageCount}`;
 
             const url = searchKey ? urlForSearches : urlForCategories;
 
