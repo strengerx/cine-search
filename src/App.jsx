@@ -35,6 +35,7 @@ const App = () => {
                                           <Route path='/' element={!searchKey ? <Hero /> : <Content searchKey={searchKey} />} />
                                           <Route path='/movie/:category' element={<Content searchKey={searchKey} />} />
                                           <Route path='/single/:id' element={<Single />} />
+
                                           <Route path='*' element={<ErrorPage />} />
                                     </Routes>
                               </div>
